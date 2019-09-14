@@ -94,3 +94,16 @@ a:visited {
     border-bottom: #161921 2px solid;
     background: #161921;
 }
+
+.alert_alert {
+    background: #1a1e27;
+    color: #FFFFFF;
+}
+
+#filepicker {
+    background: #1a1e27 !important;
+}
+
+#moremenu {
+    background: #1a1e27 !important;
+}

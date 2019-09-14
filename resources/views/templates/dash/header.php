@@ -61,7 +61,7 @@
 
             <a id="sidenav_personalinfo" href="/messages" title="Messages" class="<?php echo (($url=="/messages") ? "sidenavselected " : ""); ?>rippleeffect drawerbtn drawerbtn2 sidenava"><i  class="small material-icons-outlined sideicon">message</i></a>
             
-            <a id="sidenav_personalinfo" href="/storage" title="My Files" class="<?php echo (($url=="/storage") ? "sidenavselected " : ""); ?>rippleeffect drawerbtn drawerbtn2 sidenava"><i  class="small material-icons-outlined sideicon">storage</i></a>
+            <a id="sidenav_mystorage" moveto="m" href="/storage" title="My Files" class="<?php echo (($url=="/storage") ? "sidenavselected " : ""); ?>rippleeffect drawerbtn drawerbtn2 sidenava"><i  class="small material-icons-outlined sideicon">storage</i></a>
 
             <a id="sidenav_personalinfo" href="/auth/myaccount" title="My Account" class="<?php echo (($url=="/auth/myaccount") ? "sidenavselected " : ""); ?>rippleeffect drawerbtn drawerbtn2 sidenava"><i  class="small material-icons-outlined sideicon">person</i></a>
             <?php else: ?>

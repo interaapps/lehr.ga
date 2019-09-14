@@ -1,7 +1,6 @@
 <?php tmpl("dash/header", ["title"=>"Directory"]); ?>
 
 <?php view("tools/filepicker"); ?>
-
 <div id="toolbar">
     <a id="openfile" class="waves-effect files-showifoneselected">Open</a>
     <a id="openmoremenu" style="right: 10px;" class="waves-effect menuicon"><i class="material-icons">more_vert</i></a>
@@ -15,7 +14,8 @@
         
         
         <a onclick="$('#openfile').click()" class="waves-effect files-showifoneselected"><i class="material-icons">open_in_new</i>Open</a>
-        <a class="waves-effect files-showifoneselected"><i class="material-icons">edit</i><span>Rename</span></a>
+        <a onclick="renameAlert.open()" class="waves-effect files-showifoneselected"><i class="material-icons">edit</i><span>Rename</span></a>
+        <a id="downloadFile" class="waves-effect files-showifoneselected"><i class="material-icons">file_download</i>Download</a>
         <a class="waves-effect files-showifoneselected"><i class="material-icons">delete</i><span>Delete</span></a>
     </div>
 </div>
@@ -55,7 +55,7 @@
     right: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    z-index: 100;
+    z-index: 1000;
 }
 
 #moremenu hr {
@@ -112,13 +112,60 @@
     newFolderAlert.addHtml('<input id="newFolderInput" type="text" class="flatInput">');
 
     newFolderAlert.addButton("Add Folder", function() {
-        Cajax.post("/addfolder", {
-            name: $("newFolderInput").val(),
+        Cajax.post("/new/folder", {
+            name: $("#newFolderInput").val(),
             folder: "<?php echo ($folder); ?>"
-        }).then(function() {
-
+        }).then(function(resp) {
+            loadFolder();
+            newFolderAlert.close();
         }).send();
     }, "add");
+
+    $("#newfile").click(function() {
+        filePicker.openFilepicker();
+        filePicker.folder = "<?php echo ($folder); ?>";
+        $("#filepickertoolbarToolbar").hide();
+        $("#filepickerbottomtoolbar").hide();
+        filePicker.whenUploaded = function(file) {
+            filePicker.closeFilepicker();
+            loadFolder();
+        }; 
+    });
+
+    $("#downloadFile").click(function() {
+        fetch(parsedJSON.data[lastSelected].link).then(function (resp) {
+            resp.blob();
+        }).then(function (blob) {
+            a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = window.URL.createObjectURL(blob);
+            a.download = parsedJSON.data[lastSelected].name;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }).catch(function () {
+            alert("Couln't download!");
+        });
+    });
+
+    var renameAlert = new Alert({
+        canexit: true,
+        closebtn: true,
+        title: "Rename"
+    });
+
+    renameAlert.addHtml('<input id="renameInput" type="text" class="flatInput">');
+
+    renameAlert.addButton("Rename", function() {
+        Cajax.post("/", {
+            file: $("#renameInput").val(),
+            type: "folder",
+            name: ""
+        }).then(function(resp) {
+            loadFolder();
+            renameAlert.close();
+        }).send();
+    }, "edit");
 
     $("#newfile").click(function() {
         filePicker.openFilepicker();
@@ -287,15 +334,42 @@
                         drag = false;
                         dragName = false;
                     });
+
+                    $("[moveto]").on("mouseup", function(e) {
+                        console.log(parsedJSON.data[drag.attr("postid")].type);
+                        if (parsedJSON.data[drag.attr("postid")].type == "file")
+                            Cajax.post("/move/file", {
+                                folder: $(this).attr("moveto"),
+                                file: parsedJSON.data[drag.attr("postid")].id
+                            }).then(function(resp){
+                                loadFolder();
+                            }).send();
+                        else if (parsedJSON.data[$(drag).attr("postid")].type == "folder")
+                            Cajax.post("/move/folder", {
+                                folder: $(this).attr("moveto"),
+                                file: parsedJSON.data[drag.attr("postid")].id
+                            }).then(function(resp){
+                                loadFolder();
+                            }).send();
+                    });
+
                     $(".classPost").on("mouseup", function(e) {
                         if(dragName != $(this).attr("postid")) {
                             if (parsedJSON.data[$(this).attr("postid")].type == "folder") {
-                                Cajax.post("/move/file", {
-                                    folder: parsedJSON.data[$(this).attr("postid")].id,
-                                    file: parsedJSON.data[drag.attr("postid")].id
-                                }).then(function(resp){
-                                    loadFolder();
-                                }).send();
+                                if (parsedJSON.data[drag.attr("postid")].type == "file")
+                                    Cajax.post("/move/file", {
+                                        folder: parsedJSON.data[$(this).attr("postid")].id,
+                                        file: parsedJSON.data[drag.attr("postid")].id
+                                    }).then(function(resp){
+                                        loadFolder();
+                                    }).send();
+                                else if (parsedJSON.data[$(drag).attr("postid")].type == "folder")
+                                    Cajax.post("/move/folder", {
+                                        folder: parsedJSON.data[$(this).attr("postid")].id,
+                                        file: parsedJSON.data[drag.attr("postid")].id
+                                    }).then(function(resp){
+                                        loadFolder();
+                                    }).send();
                             }
                         }
                     });
@@ -316,6 +390,7 @@
                                 lastPosition.y < e.originalEvent.clientY-40)
                             drag.css({
                                 position: "fixed",
+                                zIndex: 100,
                                 top: e.originalEvent.clientY,
                                 left: e.originalEvent.clientX
                             });

@@ -10,7 +10,7 @@
 
 .alert_alert {
     background: #FFFFFF;
-    min-height: 200px;
+    min-height: 100px;
     min-width: 400px;
     max-width: 90%;
     display: inline-block;

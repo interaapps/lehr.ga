@@ -75,6 +75,7 @@ $router->middleware("!\app\middlewares\UserMiddleware@loggedIn", "!user\AuthCont
     $middlewareRouter->post("/folder/([0-9a-z]*)", "!files\FolderController@folderHandler");
 
     $middlewareRouter->post("/move/file", "!files\FolderController@moveFile");
+    $middlewareRouter->post("/move/folder", "!files\FolderController@moveFolder");
 
     $middlewareRouter->post("/new/folder", "!files\FolderController@newFolder");
 });

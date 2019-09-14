@@ -97,6 +97,34 @@ class FolderController {
         return Response::returnJson($out);
     }   
 
+    public static function moveFolder() {
+        global $_POST;
+        $out = [
+            "done"=>false,
+            "errorMessage"=>false,
+            "redirect"=>false
+        ];
+        if ((new \databases\FolderTable)
+            ->select("*")
+            ->where("user", USER["id"])
+            ->andwhere("id", $_POST["folder"])
+            ->first()["id"] != null 
+            || (new \databases\FolderTable)
+            ->select("*")
+            ->where("user", USER["id"])
+            ->andwhere("id", $_POST["file"])
+            ->first()["id"] != null
+        ) {
+           (new \databases\FolderTable)
+                ->update()
+                ->set("parent", $_POST["folder"])
+                ->where("user", USER["id"])
+                ->andwhere("id", $_POST["file"])->run();
+            $out["done"] = true;
+        }
+        return Response::returnJson($out);
+    }
+
     public static function newFolder() {
         Folder::addFolder($_POST["name"], USER["id"], $_POST["folder"]);
         return '{"done": true}';
