@@ -1,0 +1,17 @@
+{
+    "assets/css/app.css": [
+        "waves.css",
+        "app.css",
+        "navigation.css",
+        "alerts.css"
+    ],
+    "assets/css/darkmode.css": [
+        "darkmode.css"
+    ],
+    "assets/css/filepicker.css": [
+        "filepicker.css"
+    ],
+    "assets/css/empty.css": [
+        
+    ]
+}

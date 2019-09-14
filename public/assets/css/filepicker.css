@@ -1,0 +1,191 @@
+#filepickerbackground {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #00000011;
+    z-index: 1000;
+    display: none;
+}
+
+#filepicker {
+    display: none;
+    width: 700px;
+    height: 400px;
+    max-width: 90%;
+    position: fixed;
+    background: #FFFFFF;
+    top: 50%;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.141),0 1px 3px 0 rgba(0,0,0,0.122);
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+
+    z-index: 10000;
+}
+
+#filepickertoolbar {
+    width: 100%;
+    height: 50px;
+    border-bottom: solid 2px #00000022;
+}
+
+#filepickertoolbarToolbar {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 100000;
+}
+
+
+#filepickertoolbarToolbar {
+    display: flex;
+    margin: auto 0px;
+    position: fixed;
+    top: 0px;
+    height: 50px;
+}
+
+#filepickertoolbarToolbar div {
+    width: 106px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 13px;
+    color: #434343;
+}
+
+#filepickertoolbarToolbar div i {
+    vertical-align: middle;
+}
+
+.filepickertoolbarToolbarSelected {
+    border-bottom: 3px #4566ee solid;
+    background: #4566ee33;
+    color: #4566ee !important;
+}
+
+#closefilepickertoolbar {
+    left: 10px;
+    top: 8.6px;
+    border-radius: 100px;
+    padding: 5px;
+    font-size: 20px;
+    height: 25px;
+    position: absolute;
+    z-index: 100001;
+}
+
+#filepickeruploadbutton {
+    background: #00000011;
+    padding: 10px 30px;
+    max-width: 90%;
+    box-sizing: border-box;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+#filepickeruploadbutton i {
+    vertical-align: middle;
+}
+#filepickeruploadbutton span {
+
+}
+
+#filepickerpage_upload {
+    padding-top: 50px;
+}
+
+#filepickerpage_myfiles {
+    top: 50px;
+    padding-top: 7px;
+    padding-left: 20px;
+    overflow: auto;
+    box-sizing: border-box;
+    height: 300px;
+}
+
+#filepickeruploadpreview {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+#filepickerbottomtoolbar {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    border-top: solid #00000022 2px;
+    bottom: 0px;
+}
+
+#filepickerselectbutton {
+    padding: 5px 27px;
+    background: #AAAAAA;
+    color: #323232;
+    right: 14px;
+    position: absolute;
+    top: 8px;
+    border-radius: 5px;
+}
+
+.filepickerselectbuttonselected {
+    background: #4566ee !important;
+    color: #FFF !important;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, 100px);
+}
+
+.grid div {
+    height: 100px;
+}
+
+.filetypeicon {
+    font-size: 30px;
+    display: block;
+}
+
+.filesFile {
+    border: solid #CCCCCC 2px;
+    border-radius: 6px;
+    padding: 7px 14px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.filesFile:hover {
+    border: solid #4566ee 2px;
+}
+
+.filesFileSelected {
+    background: #4566ee44;
+}
+
+@media screen and (max-width: 720px) {
+    #filepicker {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+    }
+}

@@ -1,0 +1,96 @@
+/* 1a1e27 */
+.sidenav {
+    background: #1a1e27;
+}
+
+body {
+    background: #1a1e27;
+    color: #FFFFFF;
+}
+
+a:link {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#nav {
+    background: #1a1e27;
+    border-bottom: 1px solid #161921;
+}
+
+.menubtn {
+    color: #FFFFFF;
+}
+
+#logo p {
+    color: #FFFFFF;
+}
+
+.sidenava {
+    color: #FFFFFF;
+}
+
+.sidenava:link {
+    color: #FFFFFF;
+}
+
+.sidenava:visited {
+    color: #FFFFFF;
+}
+
+
+.sidenava:hover {
+    color: #FFFFFF;
+    background: #00000033;
+}
+
+
+.courseToolbarSection {
+        color: #FFFFFF;
+}
+
+.course_peoplelistentry a {
+    color: #FFFFFF;
+}
+
+
+.classPost {
+    border: solid #161921 2px;
+}
+
+.classPostTitle {
+    color: #FFFFFF;
+}
+
+.classPostPost {
+    color: #EEEEEE;
+}
+
+
+.flatInput {
+    width: 100%;
+    border: 2px solid #161921;
+    background: #1a1e27;
+    color: #FFFFFF;
+    -webkit-box-shadow: 0 0 0 30px #1a1e27 inset !important;
+}
+
+#userautocompletion {
+    border: #161921 2px solid;
+    background: #161921;
+}
+
+.userautocompletionfocussed {
+     background: #1a1e27 !important;
+     border-radius: 5px;
+}
+
+#userautocompletion div {
+    border-bottom: #161921 2px solid;
+    background: #161921;
+}

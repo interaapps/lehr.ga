@@ -1,0 +1,18 @@
+{
+    "assets/js/app.js": [
+        "JQuery.js",
+        "Cajax.js",
+        "alerts.js",
+        "waves.js",
+        "app.js"
+    ],
+    "assets/js/userautocompletion.js": [
+        "userautocompletion.js"
+    ],
+    "assets/js/drawing.js": [
+        "drawing.js"
+    ],
+    "assets/js/filepicker.js": [
+        "filepicker.js"
+    ]
+}

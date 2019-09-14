@@ -1,0 +1,103 @@
+.sidenav {
+    height: 100%;
+    width: 270px;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 65px;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+    transition: width 1s, background 0.3s;
+}
+
+.sideicon {
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.sidenava {
+    padding: 8px 8px 10px 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    border-radius: 0px 100px 100px 0px;
+    width: 250px;
+}
+
+.sidenavselected {
+    color: #4566ee;
+    background: #4566ee44;
+}
+
+.sidenavselected::after {
+    color: #4566ee;
+}
+
+.sidenavselected i {
+    color: #4566ee;
+}
+
+.sidenava:link {
+    color: #434343;
+}
+
+.sidenava:visited {
+    color: #434343;
+}
+
+
+.sidenava:hover {
+    color: #545454;
+    background: #EEEEEE;
+}
+
+
+.drawerbtn::after {
+    content: attr(title);
+    margin-left: 10px;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    margin-left: 270px;
+}
+
+@media screen and (max-width: 720px) {
+    .sidenav {
+        display: none;
+    }
+
+    .sidenav a {
+        font-size: 20px;
+    }
+
+    #main {
+        margin-left: 0px;
+    }
+
+
+    .sideicon {
+        font-size: 30px;
+    }
+
+
+}
+
+#behind_sidenav {
+    height: 100%;
+    width: 270px;
+    position: fixed;
+    left: 0px;
+    z-index: 100;
+}

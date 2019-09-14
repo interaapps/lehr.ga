@@ -1,0 +1,390 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Jost", "Questrial", "Product sans", "Sans serif";
+    position: relative;
+    outline: none !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+
+body {
+    color: #434343;
+    transition: background 0.3s;
+}
+
+a:link {
+    text-decoration: none;
+    color: #212121
+}
+
+a:visited {
+    text-decoration: none;
+    color: #212121
+}
+
+
+i {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/* NAV */
+#nav {
+    top: 0px;
+    width: 100%;
+    background: #FFFFFF;
+    position: fixed;
+    height: 65px;
+    line-height: 65px;
+    box-shadow: rgba(0, 0, 0, 0.55) 0px -38px 18px 34px;
+    z-index: 1000;
+    transition: 0.3s;
+    display: block;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+#logo {
+    padding-left: 40px;
+    font-size: 27px;
+    line-height: 59px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#logo:link {
+    color: #2068ff;
+}
+
+
+#logo:visited {
+    color: #2068ff;
+}
+
+
+#logo p {
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+    color: #434343;
+    vertical-align: middle;
+    /*padding-top: 8px;*/
+}
+
+#logo img {
+    vertical-align: middle;
+    padding: 0px;
+    margin: 0px;
+    opacity: 0.7;
+    margin-right: 10px;
+    transition: 0.3s color;
+}
+
+
+#navmenu {
+    transition: 0.3s;
+    height: 65px;
+    float: right;
+    padding-right: 40px;
+}
+
+#navmenu a:link {
+    color: #434343;
+}
+
+#navmenu a:visited {
+    color: #434343;
+}
+
+#navmenu a:hover {
+    color: #00ffab;
+    height: 68px;
+}
+
+
+
+.navbutton {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+    padding-top: 30px;
+}
+
+
+
+.menubtn {
+    color: #656565;
+    margin-left: 20px;
+    font-size: 30px !important;
+    margin-top: 13.3px;
+    margin-bottom: 15px;
+    padding: 4px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: none !important;
+}
+
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: #323232;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #767676;
+}
+
+.contents {
+    margin-right: 270px;
+}
+
+/* FLAT DESIGN */
+.flatInput {
+    width: 100%;
+    border: 2px solid #EEEEEE;
+    background: #FFFFFF;
+    padding: 8px;
+    margin: 10px 0px;
+    display: block;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    border-radius: 5px;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.flatInput:hover {
+    border: 2px solid #4566ee;
+}
+
+.flatInput:focus {
+    border: 2px solid #4566ee;
+}
+
+.flatButton1 {
+    background: #4566ee;
+    padding: 8px 26px;
+    border-radius: 6px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.flatButton1:link, .flatButton1:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.flatButton2 {
+    background: #4566ee;
+    padding: 12px 20px;
+    border-radius: 1000px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 16px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3), 0 2px 6px 2px rgba(0,0,0,0.15);
+    display: inline-block;
+    transition: 0.3s box-shadow;
+}
+
+.flatButton2:focus {
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3), 0 5px 7px 6px rgba(0,0,0,0.15);
+}
+
+.flatButton2 i {
+    vertical-align: middle;
+    padding-bottom: 2px;
+    padding-right: 8px;
+}
+
+.flatButton2 span {
+    vertical-align: middle;
+    padding-bottom: 2px;
+    padding-right: 4px;
+}
+
+.flatButton2:link, .flatButton2:visited {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.flatRoundButton1 {
+    border-radius: 100%;
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+}
+
+.flatRoundButton1 i {
+    font-size: 30px;
+}
+
+/* Classposts */
+#classPosts {
+    margin-top: 20px;
+}
+
+.classPost {
+    border: solid #CCCCCC 2px;
+    border-radius: 6px;
+    padding: 7px 14px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.classPost:hover {
+    border: solid #4566ee 2px;
+}
+
+.classPostTitle {
+    display: block;
+    color: #222222;
+    font-size: 18px;
+}
+
+.classPostPost {
+    display: block;
+    color: #767676;
+    max-height: 400px;
+    font-size: 13px;
+}
+
+#courseToolbar {
+    display: flex;
+    margin: auto 0px;
+    position: fixed;
+    top: 0px;
+    z-index: 10000000;
+    height: 65px;
+
+    left: 50%;
+    width: auto;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+
+
+.courseToolbarSection {
+    width: 106px;
+    text-align: center;
+    cursor: pointer;
+    padding-top: 7px;
+    color: #434343;
+}
+
+.courseToolbarSection i {
+    font-size: 28px;
+    display: block;
+}
+
+.courseToolbarSelected {
+    border-bottom: 3px #4566ee solid;
+    background: #4566ee33;
+    color: #4566ee;
+}
+
+.course_peoplelistentry {
+    display: block;
+    height: 50px;
+}
+
+.course_peoplelistentry a {
+    color: #323232;
+    font-size: 18px;
+    padding-left: 20px;
+}
+
+.course_peoplelistentry img {
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+
+#userautocompletion {
+    border-radius: 5px;
+    border: #EEEEEE 2px solid;
+    border-bottom: none;
+    position: absolute;
+    background: #FFFFFF;
+    min-width: 200px;
+    max-width: 100%;
+    z-index: 100;
+}
+
+.userautocompletionfocussed {
+    background: #EEEEEE;
+}
+
+#userautocompletion div {
+    padding: 10px;
+    border-bottom: #EEEEEE 2px solid;
+    cursor: pointer;
+}
+
+#userautocompletion div img {
+    border-radius: 500px;
+    width: 20px; 
+    height: 20px; 
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+.colorSelection {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 100px;
+    cursor: pointer;
+    border: #323232 solid 2px;
+}
+
+@media screen and (max-width: 720px) {
+    #logo {
+        padding-left: 20px;
+    }
+
+    .menubtn {
+        display: block !important;
+    }
+
+    .contents {
+        margin-right: 0px;
+    }
+
+    #courseToolbar {
+        position: relative;
+        z-index: 0;
+    }
+
+}
+
+
