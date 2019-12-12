@@ -4,7 +4,7 @@
 
 <br>
 <?php if(USER["type"] == "TEACHER" || USER["type"] == "ADMIN"):?>
-<a style="text-align: right;" class="flatButton1" id="openNewClass">Add class</a>
+<a onclick='$("#addClass").show();' style="text-align: right;" class="flatButton1" id="openNewClass">Add class</a>
 <div id="addClass">
     <input type="text" id="addClassName" class="flatInput" placeholder="Name (like 'Maths 9b')">
     <a id="submitNewClass" class="flatButton1">Submit</a>
@@ -34,9 +34,7 @@
     $(document).ready(function() {
         $("#addClass").hide();
 
-        $("#openNewClass").click(function () {
-            $("#addClass").show();
-        });
+
 
 
         $("#submitNewClass").click(function () {

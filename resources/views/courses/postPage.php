@@ -18,9 +18,10 @@
         <br>
         <a id="erasor">Erasor</a>
         <br>
+        <input type="color" id="customcolor">
         Size: <input type="range" id="penSize" min="1" max="30" value="3"> 
         </div>
-        <canvas style="display: none" id="out"></canvas>
+        <canvas style="display: none" id="out" width="100%"></canvas>
         <div>
         <canvas style="position: absolute;" id="image"></canvas>
         <canvas id="draw"></canvas>
@@ -31,9 +32,10 @@
                 outCtx.clearRect(0, 0, canvas.width, canvas.height);
                 outCtx.drawImage(canvas2,0,0);
                 outCtx.drawImage(canvas,0,0);
-                outCanvas.toDataURL();
+                console.log(outCanvas.toDataURL());
                 Cajax.post("/fileupload:img", {
-                    image: outCanvas.toDataURL()
+                    image: outCanvas.toDataURL(),
+                    folder: "m"
                 }).then(function (resp) {
                     console.log(resp);
                     Cajax.post("/course/<?php echo ($courseid); ?>/post/<?php echo ($pageid); ?>/submit:imageworksheat", {
@@ -52,10 +54,10 @@
     
     <?php if($isMine):?>
         <br><br>
-        <a id="deletePost" style="cursor: pointer"><i class="material-icons">delete</i></a>
+        <a id="deletePost" style="cursor: pointer"><i class="material-icons" style="vertical-align: middle;">delete</i></a>
 
         <?php if($type == "WORKSHEAT" || $type == "IMAGE_WORKSHEAT"):?>
-            <a href="/course/<?php echo ($courseid); ?>/post/<?php echo ($pageid); ?>/submits">Submits</a>
+            <a href="/course/<?php echo ($courseid); ?>/post/<?php echo ($pageid); ?>/submits" style="vertical-align: middle;">Submits</a>
         <?php endif; ?>
     <?php endif; ?>
 </div>

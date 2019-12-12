@@ -1,7 +1,7 @@
 <?php
 namespace databases;
 
-use ulole\modules\ORM\Table;
+use modules\uloleorm\Table;
 class CourseUserTable extends Table {
 
     public $id,

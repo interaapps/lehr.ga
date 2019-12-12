@@ -15,7 +15,7 @@ $views_dir      =  "resources/views/";
 $templates_dir  =  "resources/views/templates/";
 
 $route = [
-  "@__404__@"                =>     "404.php"
+  "@__404__@"  =>     "404.php"
 ];
 
 $router->group("/auth", function(Router $innerRouter) {
@@ -69,6 +69,8 @@ $router->middleware("!\app\middlewares\UserMiddleware@loggedIn", "!user\AuthCont
 
     $middlewareRouter->post("/fileupload:img", "!files\FileUploadController@images");
     $middlewareRouter->post("/fileupload:file", "!files\FileUploadController@file");
+
+    $middlewareRouter->get("/file/(.*)", "!files\FileController@get");
 
     $middlewareRouter->get("/storage", "!files\FolderController@personalFolderPage");
     $middlewareRouter->get("/folder/([0-9a-z]*)", "!files\FolderController@folderPage");

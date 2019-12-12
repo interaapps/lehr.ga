@@ -1,6 +1,7 @@
 <?php
 namespace app\controller\files;
 
+use app\classes\files\Folder;
 use \app\classes\utils\Images;
 use ulole\core\classes\util\secure\Hash;
 use \ulole\core\classes\util\Str;
@@ -10,26 +11,28 @@ class FileUploadController {
     public static function images($directory=false) {
         if (isset($_POST["image"]) ? $_POST["image"] != "" : false) {
             $filename = Hash::sha512($_POST["image"]).Hash::md2($_POST["image"]).".png";
-            $path = "public/assets/upload/" . $filename;
+            $path = "storage/uploads/" . $filename;
             Images::base64ToFile($_POST["image"], $path);
             try {
                 if ((new \databases\FilesTable)
                     ->select("*")
-                    ->where("file", "/assets/upload/".$filename)
+                    ->where("file", "/file/".$filename)
                     ->andwhere("parent", (($directory !== false) ? $directory : 0)) 
                 ) {
                     $db = new \databases\FilesTable;
                     $db->user = USER["id"];
                     $db->name = $filename;
-                    $db->file = "/assets/upload/".$filename;
+                    $db->file = "/file/".$filename;
+                    $db->folder = 0;
                     if ($directory !== false)
                         $db->folder = $directory;
+
                     $db->save();
                 }
             } catch(Exception $e) { }
-            return "/assets/upload/".$filename;
+            return "/file/".$filename;
         }
-        return "error";
+        return "error".$_POST["image"];
     }
 
     public static  function mime2ext($mime){
@@ -51,7 +54,7 @@ class FileUploadController {
             $out["mime"] = finfo_buffer($fileInfo, $file);
             $filename = Hash::sha512($_POST["file"]).Hash::md2($_POST["file"]).".".self::mime2ext($out["mime"]);
             
-            Images::base64ToFile($_POST["file"], "public/assets/upload/".$filename);
+            Images::base64ToFile($_POST["file"], "storage/uploads/".$filename);
 
             $folder = "m";
             
@@ -72,7 +75,7 @@ class FileUploadController {
                         $db->name = htmlspecialchars($_POST["fileName"]);
                     else
                         $db->name = $filename;
-                    $db->file = "/assets/upload/".$filename;
+                    $db->file = "/file/".$filename;
                     $db->folder = $folder;
                     $db->save();
                     $out["done"] = true;
@@ -82,7 +85,7 @@ class FileUploadController {
             } catch(\Exception $e) {
                 return Response::returnJson($out);
             }
-            $out["file"] = "/assets/upload/".$filename;
+            $out["file"] = "/file/".$filename;
 
             return Response::returnJson($out);
         }

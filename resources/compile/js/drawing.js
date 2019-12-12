@@ -20,8 +20,6 @@ var erase = false;
 
 
 
-
-
 canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mousedown", function(e) {
     setPosition(e);
@@ -56,7 +54,11 @@ function draw(e) {
 }
 
 $(".colorSelection").click(function() {
-    color = $(this).attr("data-color");
+    $("#customcolor").val($(this).attr("data-color"));
+});
+
+$("#customcolor").change(function(){
+    color = $(this).val();
 });
 
 $("#erasor").click(function() {

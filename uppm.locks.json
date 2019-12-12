@@ -1,0 +1,11 @@
+{
+    "init_scripts": [],
+    "cli_scripts": {},
+    "packages": {
+        "phpmailer": "1.0",
+        "haveibeenpwned": "1.0",
+        "interaapps\/cajax": ":github",
+        "interaapps\/jdom": ":github"
+    },
+    "directnamespaces": {}
+}

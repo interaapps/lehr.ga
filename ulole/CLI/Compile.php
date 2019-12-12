@@ -17,6 +17,8 @@ class Compile {
 
     public static function compileViews($dir, $enddir) {
         $replaceArray = [
+            "{[{"=>'<?php echo htmlspecialchars(',
+            "}]}"=>'); ?>',
             "{{"=>'<?php echo (',
             "}}"=>'); ?>',
             
@@ -29,6 +31,8 @@ class Compile {
             
             "@import(("=>"<?php import(",
             "@view(("=>"<?php view(",
+            "@component(("=>"<?php view(",
+            "@comp(("=>"<?php view(",
             "@template(("=>"<?php tmpl(",
 
             "))!"=>"); ?>",
@@ -40,6 +44,9 @@ class Compile {
             '@endforeach'=>"<?php endforeach; ?>",
             '@endwhile'=>"<?php endwhile; ?>",
             
+            '<!#--'=>"<?php /*",
+            '--#>'=>"*/?>",
+
             '<?#'=>'<?php',
             '#?>'=>'?>'
         ];

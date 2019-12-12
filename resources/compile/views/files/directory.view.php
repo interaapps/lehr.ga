@@ -92,6 +92,7 @@
     var selected = [];
     var lastSelected;
     var shifting = false;
+    var ctrlPressed = false;
     var lastPosition = {
         x: 0,
         y: 0
@@ -101,6 +102,7 @@
 
     $(document).on('keyup keydown', function(e){
         shifting = e.shiftKey;
+        ctrlPressed = e.ctrlKey;
     });
 
     var newFolderAlert = new Alert({
@@ -262,23 +264,23 @@
                                 $(".classPost").css({
                                     background: "none"
                                 });
-                                if (doubleclick == $(this).attr("postid")) {
-                                    if (parsedJSON.data[$(this).attr("postid")].type == "folder")
-                                        window.location = parsedJSON.data[$(this).attr("postid")].link;
-                                    else if (window.open(parsedJSON.data[$(this).attr("postid")].link) == null)
-                                        window.location = parsedJSON.data[$(this).attr("postid")].link;
-                                }
-
-                                setTimeout(() => {
-                                    doubleclick = -1;
-                                    console.log("d");
-                                }, 1200);
-                                doubleclick = $(this).attr("postid");
                             }
                             selected[$(this).attr("postid")] = true;
-                        } else
+                        } else 
                             selected[$(this).attr("postid")] = false;
                         
+                        if (doubleclick == $(this).attr("postid")) {
+                            if (parsedJSON.data[$(this).attr("postid")].type == "folder")
+                                window.location = parsedJSON.data[$(this).attr("postid")].link;
+                            else if (window.open(parsedJSON.data[$(this).attr("postid")].link) == null)
+                                window.location = parsedJSON.data[$(this).attr("postid")].link;
+                        }
+
+                        setTimeout(() => {
+                            doubleclick = -1;
+                        }, 200);
+                        doubleclick = $(this).attr("postid");
+
                         if (selected[$(this).attr("postid")] == true)
                             $(this).css({
                                 background: "#4566ee44"

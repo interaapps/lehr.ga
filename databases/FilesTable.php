@@ -1,7 +1,7 @@
 <?php
 namespace databases;
 
-use ulole\modules\ORM\Table;
+use modules\uloleorm\Table;
 class FilesTable extends Table {
 
     public $id,  

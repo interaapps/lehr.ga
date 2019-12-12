@@ -1,7 +1,8 @@
 <?php
 namespace databases;
 
-use ulole\modules\ORM\Table;
+use modules\uloleorm\Table;
+
 class UserTable extends Table {
 
     public $id, // INSERT YOUR ROWS IN HERE 
