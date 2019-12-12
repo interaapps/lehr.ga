@@ -10,6 +10,17 @@ As teacher you can create course and add posts in it. You can write down rules, 
 
 ## Contributing
 
+Testing the code:
+For compiling the views and bundling the Javascript and CSS
+```bash
+php cli compile
+```
+
+And testserver:
+```bash
+php cli server
+```
+
 Everyone is allowed to contribute to this project!  (But we will just accept good code and useful code. Read https://quotysco.ga/InteraAppsSupport/contributing-github for more contributing rules!)
 
 Here is our development board: https://github.com/interaapps/lehr.ga/projects/1?fullscreen=true

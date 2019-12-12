@@ -291,6 +291,22 @@ i {
     transform: translateX(-50%);
 }
 
+.downloadButton {
+    background: #00000044;
+    padding: 10px;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    border-radius: 2px;
+}
+
+.downloadButton i {
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.downloadButton span {
+    vertical-align: middle;
+}
 
 
 .courseToolbarSection {

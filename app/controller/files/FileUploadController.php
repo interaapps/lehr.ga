@@ -71,10 +71,12 @@ class FileUploadController {
                 if (\app\classes\files\Folder::imInFolder($folder)) {
                     $db = new \databases\FilesTable;
                     $db->user = USER["id"];
-                    if (isset($_POST["fileName"]))
+                    if (isset($_POST["fileName"])) {
                         $db->name = htmlspecialchars($_POST["fileName"]);
-                    else
+                    } else {
                         $db->name = $filename;
+                    }
+                    $out["name"] = $db->name;
                     $db->file = "/file/".$filename;
                     $db->folder = $folder;
                     $db->save();
@@ -86,6 +88,7 @@ class FileUploadController {
                 return Response::returnJson($out);
             }
             $out["file"] = "/file/".$filename;
+
 
             return Response::returnJson($out);
         }

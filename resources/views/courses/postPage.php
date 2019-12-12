@@ -32,7 +32,7 @@
                 outCtx.clearRect(0, 0, canvas.width, canvas.height);
                 outCtx.drawImage(canvas2,0,0);
                 outCtx.drawImage(canvas,0,0);
-                console.log(outCanvas.toDataURL());
+                
                 Cajax.post("/fileupload:img", {
                     image: outCanvas.toDataURL(),
                     folder: "m"

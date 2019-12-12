@@ -3,13 +3,16 @@
 <div class="contents" id="classPosts">
 
 <br>
-@if((USER["type"] == "TEACHER" || USER["type"] == "ADMIN"))#
-<a onclick='$("#addClass").show();' style="text-align: right;" class="flatButton1" id="openNewClass">Add class</a>
-<div id="addClass">
-    <input type="text" id="addClassName" class="flatInput" placeholder="Name (like 'Maths 9b')">
-    <a id="submitNewClass" class="flatButton1">Submit</a>
 </div>
-@endif
+<div class="contents" id="classPosts">
+</div>
+@if((USER["type"] == "TEACHER" || USER["type"] == "ADMIN"))#
+    <a onclick='$("#addClass").show();' style="text-align: right;" class="flatButton1" id="openNewClass">Add class</a>
+        <div id="addClass">
+            <input type="text" id="addClassName" class="flatInput" placeholder="Name (like 'Maths 9b')">
+            <a id="submitNewClass" class="flatButton1">Submit</a>
+        </div>
+    @endif
 </div>
 <script>
     var postsExists = false;

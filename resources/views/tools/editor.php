@@ -28,9 +28,9 @@
     <a href="#" data-command="insertOrderedList"><i class="material-icons">format_list_numbered</i></a>
     <a href="#" data-command="createlink"><i class="material-icons">insert_link</i></a>
     <a href="#" data-command="unlink"><i style="color: #EE3333" class="material-icons">insert_link</i></a>
-    <a href="#" id="imageUploadButton"><i class="material-icons">image</i></a>
-    <a href="#" data-command="insertVideo"><i class="material-icons">featured_video</i></a>
-    <a href="#" ><i class="material-icons">attach_file</i></a>
+    <a id="imageUploadButton"><i class="material-icons">image</i></a>
+    <a data-command="insertVideo"><i class="material-icons">featured_video</i></a>
+    <a id="fileUploadButton"><i class="material-icons">attach_file</i></a>
 
     <a href="#" data-command="h1">H1</a>
     <a href="#" data-command="h2">H2</a>
@@ -40,8 +40,8 @@
     <a href="#" data-command="p">P</a>
 
     <div style="display: none" id="forminputs">
-        <a href="#" data-command="input">Input field</a>
-        <a href="#" data-command="textarea">Textarea field</a>
+        <a data-command="input">Input field</a>
+        <a data-command="textarea">Textarea field</a>
     </div>
 
 
@@ -200,6 +200,21 @@
                 filePicker.closeFilepicker();
             };
         });
+
+        $("#fileUploadButton").click(function () {
+            filePicker.openFilepicker();
+            filePicker.whenSelected = function(file) {
+                var html = "<a class='downloadButton rippleeffect' target='_blank' download='"+filePicker.fileOriginalName+"' href='"+file+"'><i class='material-icons'>get_app</i><span>"+filePicker.fileOriginalName+"</span></a>";
+                if (window.getSelection().focusNode.parentNode.parentNode == document.getElementById("lehrgaeditor")) {
+                    var selection = window.getSelection().focusNode.parentNode;
+                    $(selection).append(html);
+                } else {
+                    lehrgaeditor.append(html);
+                }
+                filePicker.closeFilepicker();
+            };
+        });
+
         //$("#imageUpload").on("change", readFile);
     });
 

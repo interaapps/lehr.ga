@@ -1,6 +1,7 @@
 var filePicker = {
     fileBase: "",
     fileName: "",
+    fileOriginalName: "",
     whenSelected: function(file) {},
     whenUploaded: function() {},
     parsedJSON: {},
@@ -67,6 +68,7 @@ function readFileFilePicker() {
                 if (parsedJSONReadFilePicker.done) {
                     filePicker.whenUploaded();
                     filePicker.fileName = parsedJSONReadFilePicker.file;
+                    filePicker.fileOriginalName = parsedJSONReadFilePicker.name;
                 } 
             }).send();
             filePicker.selected = -1;
@@ -103,10 +105,11 @@ Cajax.post("/folder/"+filePicker.folder).then(function(resp) {
                         filePicker.selected = $(this).attr("postid");
                         $(".filesFileSelected").removeClass("filesFileSelected");
                         filePicker.fileName = filePicker.parsedJSON.data[$(this).attr("postid")].link;
-                        
+                        filePicker.fileOriginalName = filePicker.parsedJSON.data[$(this).attr("postid")].name;
                     } else {
                         filePicker.selected = false;
                         filePicker.fileName = "";
+                        filePicker.fileOriginalName = "";
                     }
                 else {
                     filePicker.folder = filePicker.parsedJSON.data[$(this).attr("postid")].id;
