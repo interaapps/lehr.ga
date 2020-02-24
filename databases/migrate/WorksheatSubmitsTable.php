@@ -1,12 +1,11 @@
 <?php
 namespace databases\migrate;
 
-use ulole\modules\ORM\migrate\Migrate;
-use ulole\modules\ORM\migrate\MigrationObjects;
+use modules\uloleorm\migrate\Migrate;
 
 class WorksheatSubmitsTable extends Migrate {
     public function database() {
-        $this->create('worksheat_submits', function(MigrationObjects $table) {
+        $this->create('worksheat_submits', function($table) {
             $table->int("id")->ai();
             $table->int("worksheat");
             $table->int("user");

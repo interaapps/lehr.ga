@@ -1,4 +1,4 @@
-@template(("dash/header", ["title"=>"Hello"]))!
+@template(("dash/header", ["title"=>"Course"]))!
 
     <div id="courseToolbar" class="contents">
 

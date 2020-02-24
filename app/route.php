@@ -89,3 +89,5 @@ $router->middleware("!\app\middlewares\UserMiddleware@isTeacherOrAdmin", functio
 });
 
 $router->get("/autocomplete", "autocomplete.php");
+
+$router->get("/messages", "chats/chats.php");

@@ -1,7 +1,7 @@
 <?php
 namespace databases\migrate;
 
-use ulole\modules\ORM\migrate\Migrate;
+use modules\uloleorm\migrate\Migrate;
 
 class FilesTable extends Migrate {
     public function database() {

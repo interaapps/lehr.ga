@@ -38,7 +38,7 @@
     <div id="navmenu">
     </div>
 </div>
-<div style='padding-top: 65px'>
+<div id="navbar_spacer" style='padding-top: 65px'>
 
 
 <div id="main">

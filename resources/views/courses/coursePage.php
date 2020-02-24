@@ -1,4 +1,4 @@
-<?php tmpl("dash/header", ["title"=>"Hello"]); ?>
+<?php tmpl("dash/header", ["title"=>"Course"]); ?>
 
     <div id="courseToolbar" class="contents">
 

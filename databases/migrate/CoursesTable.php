@@ -1,12 +1,11 @@
 <?php
 namespace databases\migrate;
 
-use ulole\modules\ORM\migrate\Migrate;
-use ulole\modules\ORM\migrate\MigrationObjects;
+use modules\uloleorm\migrate\Migrate;
 
 class CoursesTable extends Migrate {
     public function database() {
-        $this->create('courses', function(MigrationObjects $table) {
+        $this->create('courses', function($table) {
             $table->int("id")->ai();
             $table->string("name");
             $table->timestamp("created")->currentTimestamp();

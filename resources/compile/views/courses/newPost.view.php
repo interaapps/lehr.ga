@@ -13,7 +13,7 @@
             <img id="IMAGE_WORKSHEAT_imageuploadImage" width="100%" src="/assets/images/nopb.png" />
         </div>
         <br><br>
-        <a id="submitPost" class="flatButton1">Submit</a>
+        <a id="submitPost" class="flatButton1 waves-effect waves-light" style="float: right;">Submit</a>
     </div>
     <script>
         base64Image = "";

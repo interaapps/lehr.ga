@@ -183,11 +183,21 @@ i {
 }
 
 .flatButton1 {
-    background: #4566ee;
-    padding: 8px 26px;
-    border-radius: 6px;
-    color: #FFFFFF;
+
+    padding: 10px 22px;
     cursor: pointer;
+    display: inline-block;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px 0px #00000033;
+    transition: 0.3s box-shadow;
+    text-align: center;
+    user-select: none;
+    border: none;
+    text-decoration: none;
+    background: #4566ee;
+    color: #ffffff;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 .flatButton1:link, .flatButton1:visited {
