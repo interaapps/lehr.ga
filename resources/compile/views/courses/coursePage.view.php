@@ -1,5 +1,5 @@
 @template(("dash/header", ["title"=>"Course"]))!
-
+<script src="/assets/js/userautocompletion.js"></script>
     <div id="courseToolbar" class="contents">
 
         <div id="screen_home" class="waves-effect courseToolbarSelected courseToolbarSection">
@@ -69,13 +69,14 @@
         function loadPeople() {
             $("#classPosts").html("<br>"+ '<a id="opennewuserdiv" class="flatButton2 waves-effect waves-light"><i class="material-icons">add</i><span>Add new user</span></a><br><br>' +
             '<div id="newuserdiv"><input type="text" class="flatInput" id="userautocomplete">'+
-            '<div id="userautocompletion"></div><script src="/assets/js/userautocompletion.js"><\/script>'+
+            '<div id="userautocompletion"></div>'+
             "<br><br><a id='addnewuser' style='display:inline-block' class='flatButton1 waves-effect waves-light'>Add</a><br><br>"+
             "</div>"+
             "<h3>Teacher</h3>"+
             "<br><div id='people_teacher'></div><br>"+
             "<h3>Students</h3>"+
             "<br><div id='people_people'></div>");
+            initAutocomplete();
             $("#newuserdiv").hide();
             $("#opennewuserdiv").click(function() {
                 $("#newuserdiv").show();

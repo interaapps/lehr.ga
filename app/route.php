@@ -86,6 +86,11 @@ $router->middleware("!\app\middlewares\UserMiddleware@isTeacherOrAdmin", functio
     //$middlewareRouter->get("/user", "");
     $middlewareRouter->get("/course/add", "homepage.php");
     $middlewareRouter->post("/user/search", "!user\UserUtilsController@search");
+
+
+    $middlewareRouter->get("/user", "!admin\UserController@page");
+    $middlewareRouter->get("/user/list", "!admin\UserController@list");
+    $middlewareRouter->get("/user", "!admin\UserController@page");
 });
 
 $router->get("/autocomplete", "autocomplete.php");

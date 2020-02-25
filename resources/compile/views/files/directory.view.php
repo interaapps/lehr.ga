@@ -294,27 +294,32 @@
                     });
 
                     $(".classPost").on("contextmenu", function(e) {
+                        console.log("a");
                         $(this).click();
+                        console.log(e);
                         $("#moremenu").css({
-                            top: e.originalEvent.clientY-60,
+                            top: (e.clientY-60)+"px",
                             right: "",
-                            left: e.originalEvent.clientX-270
+                            left: (e.clientX-270)+"px"
                         });
                         $("#moremenu").show();
                         moreMenuOpened = true;
+                        event.stopImmediatePropagation();
                         e.preventDefault();
                         return false;
                     });
 
                     $("#classPosts").on("contextmenu", function(e) {
+                        console.log("b");
                         $(this).click();
                         $("#moremenu").css({
-                            top: e.originalEvent.clientY-60,
+                            top: (e.clientY-60)+"px",
                             right: "",
-                            left: e.originalEvent.clientX-270
+                            left: (e.clientX-270)+"px"
                         });
                         $("#moremenu").show();
                         moreMenuOpened = true;
+                        event.stopImmediatePropagation();
                         e.preventDefault();
                         return false;
                     });
@@ -322,8 +327,8 @@
                     $(".classPost").on("mousedown", function(e) {
                         dragName = $(this).attr("postid");
                         drag = $(this);
-                        lastPosition.y = e.originalEvent.clientY;
-                        lastPosition.x = e.originalEvent.clientX;
+                        lastPosition.y = e.clientY;
+                        lastPosition.x = e.clientX;
                     });
 
                     $("html").on("mouseup", function(e) {
@@ -386,15 +391,15 @@
 
                     $("html").on("mousemove", function(e) {
                         if (drag === false) {} else {
-                            if (lastPosition.x > e.originalEvent.clientX+40 ||
-                                lastPosition.y > e.originalEvent.clientY+40 ||
-                                lastPosition.x < e.originalEvent.clientX-40 ||
-                                lastPosition.y < e.originalEvent.clientY-40)
+                            if (lastPosition.x > e.clientX+40 ||
+                                lastPosition.y > e.clientY+40 ||
+                                lastPosition.x < e.clientX-40 ||
+                                lastPosition.y < e.clientY-40)
                             drag.css({
                                 position: "fixed",
                                 zIndex: 100,
-                                top: e.originalEvent.clientY,
-                                left: e.originalEvent.clientX
+                                top: e.clientY+"px",
+                                left: e.clientX+"px"
                             });
                         }
                     });

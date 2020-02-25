@@ -8,8 +8,8 @@ var filePicker = {
     selected: false,
     folder: "m",
     openFilepicker: function() {
-        $("#filepickerbackground").show();
-        $("#filepicker").show();
+        $("#filepickerbackground").css("display","block");
+        $("#filepicker").css("display","block");
     },
     closeFilepicker: function () {
         $("#filepickerbackground").hide();

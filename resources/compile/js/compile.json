@@ -1,6 +1,6 @@
 {
     "assets/js/app.js": [
-        "JQuery.js",
+        "jdom.js",
         "Cajax.js",
         "alerts.js",
         "waves.js",

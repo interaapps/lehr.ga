@@ -240,7 +240,7 @@
 
     $('.toolbar a').click(function(e) {
 
-        var command = $(this).data('command');
+        var command = $(this).attr('data-command');
         var aa = ["h1", "h2", "h3", "h4", "p"];
         if (aa.includes(command)) {
             document.execCommand('formatBlock', false, command);
@@ -309,9 +309,9 @@
         }
         if (command == 'createlink' || command == 'insertimage' || command == 'insertFile') {
             url = prompt('Enter the link here: ', 'http:\/\/');
-            document.execCommand($(this).data('command'), false, url);
+            document.execCommand($(this).attr('data-command'), false, url);
 
         } else
-            document.execCommand($(this).data('command'), false, null);
+            document.execCommand($(this).attr('data-command'), false, null);
     });
 </script>

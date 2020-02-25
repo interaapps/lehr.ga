@@ -120,7 +120,7 @@
         });
 
         function checkResize() {
-            if ($(window).width() >= 720){
+            if (window.innerWidth >= 720){
                 $(".sidenav").css({
                     width:"270px",
                     display: "block",
@@ -147,7 +147,7 @@
             $("#behind_sidenav").css({
                 width: "270px"
             });
-            if ($(window).width() <= 720){
+            if (window.innerWidth <= 720){
                 closeNav();
             }
         });
@@ -172,7 +172,7 @@
                 checkScroll();
             };
             checkResize();
-            if ($(window).width() <= 720){
+            if (window.innerWidth <= 720){
                 closeNav();
             }
         });

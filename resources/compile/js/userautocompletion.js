@@ -30,59 +30,62 @@ function setUserautocompletion(arr) {
     });
 }
 
-$("#userautocomplete").focusout(function() {
-    setTimeout(() => {
-        autocompletionList = [];
-        setUserautocompletion(autocompletionList);
-    }, 500);
-});
+function initAutocomplete(){
+
+    $("#userautocomplete").focusout(function() {
+        setTimeout(() => {
+            autocompletionList = [];
+            setUserautocompletion(autocompletionList);
+        }, 500);
+    });
 
 
-$("#userautocomplete").focus(function() {
-    reloadUserautocompletion(true);
-});
+    $("#userautocomplete").focus(function() {
+        reloadUserautocompletion(true);
+    });
 
-$("#userautocomplete").on("keyup", function(event) {
-    var reloadList = true;
-    console.log(event.keyCode);
-    if (event.keyCode == 40) {
-        currentFocus++;
-        if (currentFocus >= autocompletionList.length)
+    $("#userautocomplete").on("keyup", function(event) {
+        var reloadList = true;
+        console.log(event.keyCode);
+        if (event.keyCode == 40) {
+            currentFocus++;
+            if (currentFocus >= autocompletionList.length)
+                currentFocus = 0;
+            setUserautocompletion(autocompletionList);
+            return false;
+        } else if (event.keyCode == 27) {
+            autocompletionList = [];
+            setUserautocompletion(autocompletionList);
+            event.preventDefault();
+            reloadList = false;
+            return;
+        } else if (event.keyCode == 38) {
+            currentFocus--;
+            if (currentFocus == -1)
+                currentFocus = autocompletionList.length-1;
+            setUserautocompletion(autocompletionList);
+            return false;
+        } else if (event.keyCode == 13 || event.keyCode == 9) {
+            $("#userautocomplete").val($("[entryid='"+currentFocus+"'] span").html());
+            autocompletionList = [];
+            setUserautocompletion(autocompletionList);
+            reloadList = false;
+            event.preventDefault();
+        } else if (event.keyCode == 39 || event.keyCode == 37) {
+            event.preventDefault();
+            return;
+        } else {
             currentFocus = 0;
-        setUserautocompletion(autocompletionList);
-        return false;
-    } else if (event.keyCode == 27) {
-        autocompletionList = [];
-        setUserautocompletion(autocompletionList);
-        event.preventDefault();
-        reloadList = false;
-        return;
-    } else if (event.keyCode == 38) {
-        currentFocus--;
-        if (currentFocus == -1)
-            currentFocus = autocompletionList.length-1;
-        setUserautocompletion(autocompletionList);
-        return false;
-    } else if (event.keyCode == 13 || event.keyCode == 9) {
-        $("#userautocomplete").val($("[entryid="+currentFocus+"] span").html());
-        autocompletionList = [];
-        setUserautocompletion(autocompletionList);
-        reloadList = false;
-        event.preventDefault();
-    } else if (event.keyCode == 39 || event.keyCode == 37) {
-        event.preventDefault();
-        return;
-    } else {
-        currentFocus = 0;
-    }
-    
-    reloadUserautocompletion(reloadList);
-    
-    
-});
+        }
+        
+        reloadUserautocompletion(reloadList);
+        
+        
+    });
 
-$("body").on('keydown', '#userautocomplete', function(e) {
-    var keyCode = e.keyCode || e.which; 
-    if (keyCode == 9) 
-        e.preventDefault(); 
-});
+    $("#userautocomplete").on('keydown', function(e) {
+        var keyCode = e.keyCode || e.which; 
+        if (keyCode == 9) 
+            e.preventDefault(); 
+    });
+}
