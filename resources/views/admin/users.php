@@ -1,6 +1,6 @@
 <?php tmpl("dash/header", ["title"=>"Course"]); ?>
 
-    <div id="courseToolbar" class="contents">
+    <div class="contents">
         <input type="text" class="flatInput" id="userautocomplete">
     </div>
 

@@ -1,10 +1,10 @@
 <?php
-namespace app\controller\chats;
+namespace app\controller\admin;
 
-class ChatsController {
+class UsersController {
     
     public static function page() {
-        return view("admin/admin");
+        return view("admin/users");
     }
 
 }
