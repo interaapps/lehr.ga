@@ -15,7 +15,8 @@ class UserMiddleware {
         return USER["type"] == "TEACHER";
     }
 
-    public static function isTeacherOrAdmin() {
+    public static function isTeacherOrAdmin() {       
+        if (USER === false) return false;        
         return USER["type"] == "TEACHER" || USER["type"] == "ADMIN";
     }
 
