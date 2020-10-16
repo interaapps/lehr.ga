@@ -84,6 +84,8 @@ class Session {
     }
 
     public function set($key, $value) {
+        if (!isset($this->sessionKeys->data))
+            $this->sessionKeys->data = (object) [];
         $this->sessionKeys->data->{$key} = $value;
         return $this;
     }
